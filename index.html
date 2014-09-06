@@ -73,11 +73,9 @@ $(document).bind('DOMNodeInserted', function(event) {
 </form>
   
 <ul class="main-navigation">
-  <li><a href="/">Blog</a></li>
+  <li><a href="/">首页</a></li>
   <li><a href="/blog/archives">所有文章</a></li>
-  <li><a href="">技术</a></li>
-  <li><a href="">产品</a></li>
-  <li><a href="">读书</a></li>
+  <li><a href="">分类阅读</a></li>
   <li><a href="">标签云</a></li>
 </ul>
 
@@ -167,21 +165,24 @@ $(document).bind('DOMNodeInserted', function(event) {
 </footer>
   
 
+<script type="text/javascript">
+      var disqus_shortname = 'likelight';
+      
+        
+        var disqus_script = 'count.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = 'http://' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
 
 
 
 
 
 
-  <script type="text/javascript">
-    (function(){
-      var twitterWidgets = document.createElement('script');
-      twitterWidgets.type = 'text/javascript';
-      twitterWidgets.async = true;
-      twitterWidgets.src = 'http://platform.twitter.com/widgets.js';
-      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
-    })();
-  </script>
 
 
 
