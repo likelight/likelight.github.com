@@ -5,7 +5,7 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>likelight&#8217;s home</title>
+  <title>jquery事件绑定总结 - likelight&#8217;s home</title>
   <meta name="author" content="likelight">
 
   
@@ -20,7 +20,7 @@ $(&#39;a&#39;).bind(&#39;click&#39;,function(){alert(&#39;That &hellip;">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://likelight.github.io/">
+  <link rel="canonical" href="http://likelight.github.io/blog/2014/09/07/jqueryshi-jian-bang-ding-zong-jie/">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <script src="/javascripts/modernizr-2.0.js"></script>
@@ -83,15 +83,12 @@ $(document).bind('DOMNodeInserted', function(event) {
 </nav>
   <div id="main">
     <div id="content">
-      <div class="blog-index">
+      <div>
+<article class="hentry" role="article">
   
-  
-  
-    <article>
-      
   <header>
     
-      <h1 class="entry-title"><a href="/blog/2014/09/07/jqueryshi-jian-bang-ding-zong-jie/">Jquery事件绑定总结</a></h1>
+      <h1 class="entry-title">Jquery事件绑定总结</h1>
     
     
       <p class="meta">
@@ -114,7 +111,7 @@ $(document).bind('DOMNodeInserted', function(event) {
   </header>
 
 
-  <div class="entry-content"><p><strong>最近对于事件绑定处理用的比较多，进行总结一下</strong>
+<div class="entry-content"><p><strong>最近对于事件绑定处理用的比较多，进行总结一下</strong>
 <img src="./20110608013425637.png" alt="Alt text" /></p>
 
 <h2>bind</h2>
@@ -179,108 +176,16 @@ bind并不能对未来添加的元素绑定事件;原理和直接$(&ldquo;a&rdqu
 
 <p>监听div标签下a的点击事件</p>
 </div>
-  
-  
 
 
-    </article>
-  
-  
-    <article>
+  <footer>
+    <p class="meta">
       
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2014/09/07/shou-ji-qian-duan-diao-shi-huan-jing-da-jian-zong-jie/">手机前端调试环境搭建总结</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
   
 
+<span class="byline author vcard">Posted by <span class="fn">likelight</span></span>
 
-<time datetime="2014-09-07T21:45:29+08:00" pubdate data-updated="true"></time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>@(实习)[网络|帮助|软件]</p>
-
-<h2>实现目的</h2>
-
-<p>公司上司提出一个移动端的适配要求，需要在手机端访问适配官网，在完成编码后需要进行测试在公司各套网络环境下搭建可用手机测试的环境;</p>
-
-<h2>预备知识</h2>
-
-<p><strong>开发环境</strong></p>
-
-<blockquote><p>开发环境是程序员代码环境.连接ip: 完成开发后通过svn提交到测试环境;</p></blockquote>
-
-<p><strong>测试环境</strong></p>
-
-<blockquote><p>测试环境是测试人员测试代码环境，通过svn co 出对应版本,进行测试工作的环境,基本与开发环境一致;</p></blockquote>
-
-<p><strong>预发环境</strong></p>
-
-<blockquote><p>预发环境是测试人员经过测试通过后，需要将代码提交到预发环境下进行发布前的最后测试，基本设置与线网发布环境一致;</p></blockquote>
-
-<p><strong>发布环境</strong></p>
-
-<blockquote><p>普通用户能够正常访问到的环境，即如：www.baidu.com</p></blockquote>
-
-<h2>环境搭建</h2>
-
-<p>-<strong>本地环境调试</strong>：
-1，<strong>模拟设备访问</strong>：</p>
-
-<blockquote><p>在用真机调试前，可以先用模拟设备访问网页,实现多终端，多平台的测试目的。
-chrome提供了强大的模拟环境，可以自由模拟访问设备，设置user-agent,设置设备分辨率
-<a href="http://jingyan.baidu.com/article/ea24bc39a7c1d1da62b331b2.html">教程点击</a></p></blockquote>
-
-<p>2，<strong>真机本地调试</strong></p>
-
-<blockquote><p>本机调试的话就是用手机访问本地的资源，需要在本地有着代码环境，并有着搭建好的本地服务器环境;
-用手机和电脑都通过wifi连入同一个网段，在手机端安装chrome 浏览器后用数据线将手机和PC相连即可实现在pc端调试手机端网页的功能；
-<a href="http://tieba.baidu.com/p/3023322395">教程详解</a>,亲测需要电脑翻墙。</p></blockquote>
-
-<p><strong>其他环境测试</strong></p>
-
-<blockquote><p>除发布环境可以直接通过输入域名访问外，其他环境要用手机访问都需要通过修改host和绑定dns方法；
-修改手机host是让你可以在输入域名之后能够自动映射到对应的ip地址;
-(此方法过于繁琐,需要android手机root和将对应环境网段的hosts覆盖到手机的/etc/hosts下)</p></blockquote>
-
-<p><strong>代理环境调试</strong></p>
-
-<blockquote><p>即利用你本地pc作为网络代理，手机访问的数据包走pc端,这样就可以省去对于手机的各种设置.只需要在pc端切换各种网络环境下的hosts,即可实现手机访问各种测试环境.
-需要在本地pc上安装代理软件，如：Charles;
-<a href="http://www.myexception.cn/mobile/1603832.html">设置教程</a>
-,当手机访问页面时能给被charles抓到包时即证明手机已通过走pc代理访问。</p></blockquote>
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
       
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2014/09/06/first/">First</a></h1>
-    
-    
-      <p class="meta">
-        
 
 
 
@@ -292,27 +197,65 @@ chrome提供了强大的模拟环境，可以自由模拟访问设备，设置us
   
 
 
-<time datetime="2014-09-06T18:55:16+08:00" pubdate data-updated="true"></time>
-        
-      </p>
+<time datetime="2014-09-07T21:58:08+08:00" pubdate data-updated="true"></time>
+      
+
+
+    </p>
     
-  </header>
-
-
-  <div class="entry-content">
+      <div class="sharing">
+  
+  
+  
+    <!-- JiaThis Button BEGIN -->
+<div class="jiathis_style">
+	<a class="jiathis_button_qzone"></a>
+	<a class="jiathis_button_tsina"></a>
+	<a class="jiathis_button_renren"></a>
+	<a class="jiathis_button_weixin"></a>
+	<a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	<a class="jiathis_counter_style"></a>
 </div>
-  
-  
+<script type="text/javascript" src="http://v3.jiathis.com/code_mini/jia.js?uid=1405987423221487" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+    var disqus_shortname = 'likelight'; // required: replace example with your forum shortname
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
 
 
-    </article>
   
-  <div class="pagination">
-    
-    <a href="/blog/archives">Blog Archives</a>
-    
-  </div>
 </div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2014/09/07/shou-ji-qian-duan-diao-shi-huan-jing-da-jian-zong-jie/" title="Previous Post: 手机前端调试环境搭建总结">&laquo; 手机前端调试环境搭建总结</a>
+      
+      
+    </p>
+  </footer>
+</article>
+
+  <section>
+    <h1>Comments</h1>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+  </section>
+
+</div>
+
 <aside class="sidebar">
   
     <section>
@@ -347,6 +290,7 @@ chrome提供了强大的模拟环境，可以自由模拟访问设备，设置us
   
 </aside>
 
+
     </div>
   </div>
   <footer role="contentinfo"><p>
@@ -363,7 +307,10 @@ chrome提供了强大的模拟环境，可以自由模拟访问设备，设置us
       var disqus_shortname = 'likelight';
       
         
-        var disqus_script = 'count.js';
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://likelight.github.io/blog/2014/09/07/jqueryshi-jian-bang-ding-zong-jie/';
+        var disqus_url = 'http://likelight.github.io/blog/2014/09/07/jqueryshi-jian-bang-ding-zong-jie/';
+        var disqus_script = 'embed.js';
       
     (function () {
       var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;

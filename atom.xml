@@ -4,7 +4,7 @@
   <title><![CDATA[likelight's home]]></title>
   <link href="http://likelight.github.io/atom.xml" rel="self"/>
   <link href="http://likelight.github.io/"/>
-  <updated>2014-09-07T21:48:26+08:00</updated>
+  <updated>2014-09-07T21:59:03+08:00</updated>
   <id>http://likelight.github.io/</id>
   <author>
     <name><![CDATA[likelight]]></name>
@@ -12,6 +12,78 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[jquery事件绑定总结]]></title>
+    <link href="http://likelight.github.io/blog/2014/09/07/jqueryshi-jian-bang-ding-zong-jie/"/>
+    <updated>2014-09-07T21:58:08+08:00</updated>
+    <id>http://likelight.github.io/blog/2014/09/07/jqueryshi-jian-bang-ding-zong-jie</id>
+    <content type="html"><![CDATA[<p><strong>最近对于事件绑定处理用的比较多，进行总结一下</strong>
+<img src="./20110608013425637.png" alt="Alt text" /></p>
+
+<h2>bind</h2>
+
+<blockquote><p>单个元素的事件绑定
+扫描文档找出所有的$(‘a&#8217;)元素，并把alert函数绑定到每个元素的click事件上。</p></blockquote>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="nx">$</span><span class="p">(</span><span class="s1">&#39;a&#39;</span><span class="p">).</span><span class="nx">bind</span><span class="p">(</span><span class="s1">&#39;click&#39;</span><span class="p">,</span><span class="kd">function</span><span class="p">(){</span><span class="nx">alert</span><span class="p">(</span><span class="s1">&#39;That tickles!&#39;</span><span class="p">);})</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>备注：
+bind并不能对未来添加的元素绑定事件;原理和直接$(&ldquo;a&rdquo;).click是同一机制</p>
+
+<h2>live</h2>
+
+<blockquote><p>作为事件冒泡的流程，默认将事件绑定到$(document)元素上，采用事件代理的模式
+任何时候只要有事件冒泡到document节点上，它就查看该事件是否是一个如：click事件，以及该事件的目标元素与&#8217;a&#8217;这一CSS选择器是否匹配，如果都是的话，则执行函数。</p></blockquote>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="nx">$</span><span class="p">(</span><span class="s1">&#39;a&#39;</span><span class="p">).</span><span class="nx">live</span><span class="p">(</span><span class="s1">&#39;click&#39;</span><span class="p">,</span><span class="kd">function</span><span class="p">(){</span><span class="nx">alert</span><span class="p">(</span><span class="s1">&#39;That tickles!&#39;</span><span class="p">)})</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>备注：以上代码首先要扫描整个的文档查找所有的$(‘a&#8217;)元素，把它们存成jQuery对象，效率较低;
+只能监听css选择器</p>
+
+<h2>delegate</h2>
+
+<blockquote><p>和live很相似，需要指定事件代理的监听方，效率高于live</p></blockquote>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="nx">$</span><span class="p">(</span><span class="s1">&#39;#container&#39;</span><span class="p">).</span><span class="nx">delegate</span><span class="p">(</span><span class="s1">&#39;a&#39;</span><span class="p">,</span><span class="s1">&#39;click&#39;</span><span class="p">,</span><span class="kd">function</span><span class="p">(){</span><span class="nx">alert</span><span class="p">(</span><span class="s1">&#39;That tickles!&#39;</span><span class="p">)})</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>备注：当很多元素需要监听时，较低开销</p>
+
+<h2>on</h2>
+
+<blockquote><p>jquery1.7之后的推荐事件绑定用法</p></blockquote>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="p">.</span><span class="nx">on</span><span class="p">(</span> <span class="nx">events</span> <span class="p">[,</span> <span class="nx">selector</span><span class="p">]</span> <span class="p">[,</span> <span class="nx">data</span><span class="p">],</span> <span class="nx">handler</span><span class="p">(</span><span class="nx">eventObject</span><span class="p">)</span> <span class="p">)</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>普通使用</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="nx">$</span><span class="p">(</span><span class="s2">&quot;a&quot;</span><span class="p">).</span><span class="nx">on</span><span class="p">(</span><span class="s2">&quot;click&quot;</span><span class="p">,</span><span class="kd">function</span><span class="p">(){})</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>事件代理使用</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="nx">$</span><span class="p">(</span><span class="s2">&quot;div&quot;</span><span class="p">).</span><span class="nx">on</span><span class="p">(</span><span class="s2">&quot;click&quot;</span><span class="p">,</span><span class="s2">&quot;a&quot;</span><span class="p">,</span><span class="kd">function</span><span class="p">(){})</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>监听div标签下a的点击事件</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[手机前端调试环境搭建总结]]></title>
