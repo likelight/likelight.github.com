@@ -4,7 +4,7 @@
   <title><![CDATA[likelight's home]]></title>
   <link href="http://likelight.github.io/atom.xml" rel="self"/>
   <link href="http://likelight.github.io/"/>
-  <updated>2014-09-07T21:46:48+08:00</updated>
+  <updated>2014-09-07T21:48:26+08:00</updated>
   <id>http://likelight.github.io/</id>
   <author>
     <name><![CDATA[likelight]]></name>
@@ -18,9 +18,7 @@
     <link href="http://likelight.github.io/blog/2014/09/07/shou-ji-qian-duan-diao-shi-huan-jing-da-jian-zong-jie/"/>
     <updated>2014-09-07T21:45:29+08:00</updated>
     <id>http://likelight.github.io/blog/2014/09/07/shou-ji-qian-duan-diao-shi-huan-jing-da-jian-zong-jie</id>
-    <content type="html"><![CDATA[<h1>手机前端调试环境搭建总结</h1>
-
-<p>@(实习)[网络|帮助|软件]</p>
+    <content type="html"><![CDATA[<p>@(实习)[网络|帮助|软件]</p>
 
 <h2>实现目的</h2>
 
