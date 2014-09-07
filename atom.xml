@@ -4,7 +4,7 @@
   <title><![CDATA[likelight's home]]></title>
   <link href="http://likelight.github.io/atom.xml" rel="self"/>
   <link href="http://likelight.github.io/"/>
-  <updated>2014-09-07T21:42:08+08:00</updated>
+  <updated>2014-09-07T21:46:48+08:00</updated>
   <id>http://likelight.github.io/</id>
   <author>
     <name><![CDATA[likelight]]></name>
@@ -12,6 +12,67 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[手机前端调试环境搭建总结]]></title>
+    <link href="http://likelight.github.io/blog/2014/09/07/shou-ji-qian-duan-diao-shi-huan-jing-da-jian-zong-jie/"/>
+    <updated>2014-09-07T21:45:29+08:00</updated>
+    <id>http://likelight.github.io/blog/2014/09/07/shou-ji-qian-duan-diao-shi-huan-jing-da-jian-zong-jie</id>
+    <content type="html"><![CDATA[<h1>手机前端调试环境搭建总结</h1>
+
+<p>@(实习)[网络|帮助|软件]</p>
+
+<h2>实现目的</h2>
+
+<p>公司上司提出一个移动端的适配要求，需要在手机端访问适配官网，在完成编码后需要进行测试在公司各套网络环境下搭建可用手机测试的环境;</p>
+
+<h2>预备知识</h2>
+
+<p><strong>开发环境</strong></p>
+
+<blockquote><p>开发环境是程序员代码环境.连接ip: 完成开发后通过svn提交到测试环境;</p></blockquote>
+
+<p><strong>测试环境</strong></p>
+
+<blockquote><p>测试环境是测试人员测试代码环境，通过svn co 出对应版本,进行测试工作的环境,基本与开发环境一致;</p></blockquote>
+
+<p><strong>预发环境</strong></p>
+
+<blockquote><p>预发环境是测试人员经过测试通过后，需要将代码提交到预发环境下进行发布前的最后测试，基本设置与线网发布环境一致;</p></blockquote>
+
+<p><strong>发布环境</strong></p>
+
+<blockquote><p>普通用户能够正常访问到的环境，即如：www.baidu.com</p></blockquote>
+
+<h2>环境搭建</h2>
+
+<p>-<strong>本地环境调试</strong>：
+1，<strong>模拟设备访问</strong>：</p>
+
+<blockquote><p>在用真机调试前，可以先用模拟设备访问网页,实现多终端，多平台的测试目的。
+chrome提供了强大的模拟环境，可以自由模拟访问设备，设置user-agent,设置设备分辨率
+<a href="http://jingyan.baidu.com/article/ea24bc39a7c1d1da62b331b2.html">教程点击</a></p></blockquote>
+
+<p>2，<strong>真机本地调试</strong></p>
+
+<blockquote><p>本机调试的话就是用手机访问本地的资源，需要在本地有着代码环境，并有着搭建好的本地服务器环境;
+用手机和电脑都通过wifi连入同一个网段，在手机端安装chrome 浏览器后用数据线将手机和PC相连即可实现在pc端调试手机端网页的功能；
+<a href="http://tieba.baidu.com/p/3023322395">教程详解</a>,亲测需要电脑翻墙。</p></blockquote>
+
+<p><strong>其他环境测试</strong></p>
+
+<blockquote><p>除发布环境可以直接通过输入域名访问外，其他环境要用手机访问都需要通过修改host和绑定dns方法；
+修改手机host是让你可以在输入域名之后能够自动映射到对应的ip地址;
+(此方法过于繁琐,需要android手机root和将对应环境网段的hosts覆盖到手机的/etc/hosts下)</p></blockquote>
+
+<p><strong>代理环境调试</strong></p>
+
+<blockquote><p>即利用你本地pc作为网络代理，手机访问的数据包走pc端,这样就可以省去对于手机的各种设置.只需要在pc端切换各种网络环境下的hosts,即可实现手机访问各种测试环境.
+需要在本地pc上安装代理软件，如：Charles;
+<a href="http://www.myexception.cn/mobile/1603832.html">设置教程</a>
+,当手机访问页面时能给被charles抓到包时即证明手机已通过走pc代理访问。</p></blockquote>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[first]]></title>
