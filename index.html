@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
-    <title>Our Love Story</title>
     <meta charset="utf-8">
+    <title>Our Love Story</title>
     <meta http-equiv="X-UA-Compatible" content="IE=Edge">
     <meta http-equiv="content-type" content="text/html; charset=UTF-8">
     <style>
@@ -21,25 +21,11 @@
 <body>
     <div id="mainDiv">
         <div id="content">
+            <audio id="bgMusic" src="./gaobai.mp3" controls autoplay preload="" loop></audio>
             <div id="code">
                 <span class="comments"></span>
                 <br>
-				<span class="space"><span class="comments">我会牵着你的手，走到我们满头白发的那一天</span><br> 
-				<span class="space"><span class="comments">我会守护你生命里的精彩，并陪伴你一路精彩下去。</span><br>
-				 <span class="space"><span class="comments">你的幸福快乐，是我一生的追求。</span><br> 
-				 <span class="space">我会每一天带着笑脸，和你说早安，<br> 
-				<span class="space">我会每一晚与你道声晚安再入梦乡，<br> 
-					<span class="space">我会带你去所有你想去的地方，<br> 
-				<span class="space">陪你闹看你笑<br> <span class="space">历经你生命中所有的点点滴滴。<br> 
-					<span class="space">我期待这一生与你一起走过，<br> 
-						<span class="space">走到尽头再回头看尽一生铅华满地，<br> 
-							<span class="space">我期待与你慢慢变老，<br> 
-								<span class="space">等我们老到哪儿也去不了，<br> 
-									<span class="space">还能满载着一生的幸福快乐。<br> 
-										<span class="keyword">我愿意爱你直到老去，<br> 
-											<span class="space">我会为我们的未来撑起一片天空，<br> 
-												<span class="space">为我们的将来担负起一生的责任，<br> 
-													<span class="space">愿意为你去做每一件能让你开心快乐的事。<br> <span class="space">所有我们经历的点点滴滴，<br>都是我们一辈子最美的回忆。</span> <br> <br> </span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span>
+                <span class="space"><span class="comments">矿姐:</span><br> <span class="space"><span class="comments">很庆幸生命中能够出现你,让我有人可以去牵绊</span><br> <span class="space"><span class="comments">记得你的每次给我点的外卖，督促我的早睡休息，点点滴滴</span><br> <span class="space"><span class="comments">好喜欢看见你笑的样子，也希望来守护你的笑容；</span><br> <span class="space">有时候笨笨的我会惹你生气，但每次你难受的样子会让我更加难受;<br> <span class="space">请别总是说你是一个人，请你将你的开心与难过和我分享<br> <span class="space">我在努力改变变得更懂你，但也请你更愿意和我沟通;<br> <span class="space">我会每一晚与你道声晚安再入梦乡，<br> <span class="space">也深深地陶醉于你每天叫我起床的电话<br> <span class="space">我会努力带你去你想去的地方，悉尼，日本，土耳其...<br> <span class="space">陪你闹看你笑<br> <span class="space">历经你生命中的点点滴滴。<br> <span class="space">我期待与你一起走下去，<br> <span class="space">我会为我们的未来撑起一片天空，<br> <span class="space">希望我们在一起的那些欢乐，高兴，别扭与平淡，都成为以后一起回顾的美好回忆。</span> <br> <br> </span></span></span></span></span></span></span></span></span></span></span></span></span></span>
             </div>
             <div id="loveHeart">
                 <canvas id="garden"></canvas>
@@ -80,6 +66,7 @@
         document.execCommand('stop');
     }
     else {
+        setInterval('toggleSound()', 100);
         setTimeout(function () {
             startHeartAnimation();
         }, 5000);
@@ -87,10 +74,20 @@
         timeElapse(together);
         setInterval(function () {
             timeElapse(together);
-        }, 500);
+        }, 800);
 
         adjustCodePosition();
         $('#code').typewriter();
+    }
+
+    function toggleSound() {
+        var music = document.getElementById('bgMusic'); // 获取ID  
+        console.log(music);
+        console.log(music.paused);
+        if (music.paused) { // 判读是否播放  
+            music.paused = false;
+            music.play(); // 没有就播放 
+        }
     }
     </script>
 </body>
